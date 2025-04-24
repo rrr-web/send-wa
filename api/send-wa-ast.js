@@ -32,7 +32,7 @@ export default async function handler(req, res) {
     const result = await response.json();
     console.log('Wablas response:', result);
 
-    if (result.success) {
+    if (result.status) {
       res.status(200).json({ message: 'Success', result });
     } else {
       res.status(500).json({ error: result.error || 'Failed to send message' });
