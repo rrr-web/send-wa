@@ -6,7 +6,7 @@ export default async function handler(req, res) {
     const data = req.body;
   
     //const groupIds = ['6281273133989-1502490848'];//
-    const groupIds = [120363327177489441]
+    const groupIds = ['6282236924872']
     const message = formatMessage(data); // fungsi ini kamu sesuaikan
   
     try {
@@ -20,7 +20,7 @@ export default async function handler(req, res) {
           data: groupIds.map(id => ({
             phone: id,
             message,
-            isGroup: true
+            isGroup: false
           }))
         })
       });
@@ -43,48 +43,10 @@ export default async function handler(req, res) {
   🚛AST Mechanic Report🚛
   
   Unit: ${get('Unit')}
-  No WO: ${get('No WO')}
   Lokasi: ${get('Lokasi Pengerjaan')}
   Hours Meters: ${get('Hours Meters')}
   Start BD:
-  Tanggal: ${get('Tanggal BD')}
-  Jam: ${get('Jam BD')}
-  Pembuat Laporan: ${get('Pembuat Laporan')}
-  
-  ⚠️Problem:
-  ${bulletList(get('Problem'))}
-  Hasil Pengecekan:
-  ${bulletList(get('Hasil Pengecekan'))}
-  
-  🛠️Tindak Lanjut Perbaikan:
-  ${bulletList(get('Action'))}
-  
-  ⚙️ Part yang Digunakan:
-  ${bulletList(get('Part/Komponen yang digunakan'))}
-  
-  Delay:
-  ${bulletList(get('Delay'))}
-  
-  Start Pengerjaan:
-  Tanggal: ${get('Tanggal Pengerjaan')}
-  Jam: ${get('Jam Pengerjaan')}
-  
-  Finish Pengerjaan:
-  Tanggal: ${get('Tanggal Selesai Pengerjaan')}
-  Jam: ${get('Jam Selesai Pengerjaan')}
-  
-  Status: ${get('Status')}
-  
-  Pending Job:
-  ${bulletList(get('Pending Job'))}
-  Note:
-  ${bulletList(get('Note'))}
-  
-  Man Power:
-  ${bulletList(get('Nama Man Power'))}
-  Supervisor:
-  ${get('Supervisor')}
-  
+  Tanggal: ${get('Tanggal BD')}  
   🔰Terimakasih🔰`;
   }
   
