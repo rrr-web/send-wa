@@ -42,11 +42,11 @@ export default async function handler(req, res) {
   
   🚛AST Mechanic Report🚛
   
-  Unit: ${get('Unit')}
-  Lokasi: ${get('Lokasi Pengerjaan')}
-  Hours Meters: ${get('Hours Meters')}
+  Unit: ${get('unit')}
+  Lokasi: ${get('lokasi')}
+  Hours Meters: ${get('hm')}
   Start BD:
-  Tanggal: ${get('Tanggal BD')}  
+  Tanggal: ${get('bd')}  
   🔰Terimakasih🔰`;
   }
   
