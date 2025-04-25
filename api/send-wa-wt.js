@@ -4,8 +4,8 @@ export default async function handler(req, res) {
     }
   
     const data = req.body;
-    //const groupids = ['6281273133989-1502490848'];
-    const groupIds = ['6282236924872'];
+    const groupids = ['6281273133989-1502490848'];
+    // const groupIds = ['6282236924872'];
 
     const message = formatMessage(data);
   
