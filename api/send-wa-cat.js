@@ -99,7 +99,12 @@ export default async function handler(req, res) {
     🔰Terimakasih🔰`;
     }
     
-    function bulletList(text) {
-      return text.split('\n').map(line => '• ' + line.trim()).join('  \n');
-    }
+   function bulletList(text) {
+      return text
+        .split('\n')
+        .filter(line => line.trim() !== '')
+        .map(line => '   • ' + line.trim())
+        .join('\n');
+}
+
     
