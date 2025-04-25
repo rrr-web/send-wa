@@ -51,7 +51,7 @@ export default async function handler(req, res) {
       const get = (key) => (data[key] || '').toString();
       return `🟦 🟦 🟦
     
-    Unit Caterpillar Mechanic Report
+    Unit Komatsu Mechanic Report
     
     Unit: ${get('unit')}
     Operator: ${get('operator')}
