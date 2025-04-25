@@ -4,7 +4,9 @@ export default async function handler(req, res) {
   }
 
   const data = req.body;
-  const groupIds = ['6281273133989-1502490848'];
+  // const groupIds = ['6281273133989-1502490848'];
+  const groupIds = ['6282236924872'];
+  
   const message = formatMessage(data);
 
   try {
@@ -97,7 +99,20 @@ export default async function handler(req, res) {
   🔰Terimakasih🔰`;
   }
   
-  function bulletList(text) {
-    return text.split('\n').map(line => '• ' + line.trim()).join('\n');
-  }
+ function bulletList(text) {
+  if (!text) return '• -';
+  
+  const lines = text
+    .replace(/\r\n|\r/g, '\n')        // normalisasi newline
+    .split('\n')
+    .map(line => line.trim())
+    .filter(line => line !== '');
+
+  if (lines.length === 0) return '• -';
+
+  const result = lines.map(line => '• ' + line).join('\n');
+  console.log('Formatted bullet list:\n' + result);
+  return result;
+}
+
   
