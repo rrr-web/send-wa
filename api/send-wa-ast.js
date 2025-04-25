@@ -86,8 +86,6 @@ export default async function handler(req, res) {
   
   Pending Job:
   ${bulletList(get('Pending Job'))}
-  Note:
-  ${bulletList(get('Note'))}
   
   Man Power:
   ${bulletList(get('Nama Man Power'))}
