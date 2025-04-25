@@ -62,6 +62,7 @@ export default async function handler(req, res) {
   
   ⚠️Problem:
   ${bulletList(get('problem'))}
+  
   Hasil Pengecekan:
   ${bulletList(get('hasilpengecekan'))}
   
@@ -89,6 +90,7 @@ export default async function handler(req, res) {
   
   Man Power:
   ${bulletList(get('manpower'))}
+  
   Supervisor:
   ${get('supervisor')}
   
