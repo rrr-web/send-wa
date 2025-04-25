@@ -4,7 +4,7 @@ export default async function handler(req, res) {
     }
   
     const data = req.body;
-    // const groupIds = ['6285222707916-1558930545','6281273133989-1556324414'];
+    // const groupids = ['6285222707916-1558930545','120363151345338717'];
     const groupIds = ['6282236924872'];
 
     const message = formatMessage(data);
@@ -51,7 +51,7 @@ export default async function handler(req, res) {
       const get = (key) => (data[key] || '').toString();
       return `🟦 🟦 🟦
     
-    Unit Caterpillar Mechanic Report
+    Unit Volvo Mechanic Report
     
     Unit: ${get('unit')}
     Operator: ${get('operator')}
