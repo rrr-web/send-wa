@@ -51,46 +51,46 @@ export default async function handler(req, res) {
   
   🚛AST Mechanic Report🚛
   
-  Unit: ${get('Unit')}
-  No WO: ${get('No WO')}
-  Lokasi: ${get('Lokasi Pengerjaan')}
-  Hours Meters: ${get('Hours Meters')}
+  Unit: ${get('unit')}
+  No WO: ${get('nowo')}
+  Lokasi: ${get('lokasi')}
+  Hours Meters: ${get('hoursmeters')}
   Start BD:
-  Tanggal: ${get('Tanggal BD')}
-  Jam: ${get('Jam BD')}
-  Pembuat Laporan: ${get('Pembuat Laporan')}
+  Tanggal: ${get('tanggalbd')}
+  Jam: ${get('jambd')}
+  Pembuat Laporan: ${get('pembuatlaporan')}
   
   ⚠️Problem:
-  ${bulletList(get('Problem'))}
+  ${bulletList(get('problem'))}
   Hasil Pengecekan:
-  ${bulletList(get('Hasil Pengecekan'))}
+  ${bulletList(get('hasilpengecekan'))}
   
   🛠️Tindak Lanjut Perbaikan:
-  ${bulletList(get('Action'))}
+  ${bulletList(get('action'))}
   
   ⚙️ Part yang Digunakan:
-  ${bulletList(get('Part/Komponen yang digunakan'))}
+  ${bulletList(get('part'))}
   
   Delay:
-  ${bulletList(get('Delay'))}
+  ${bulletList(get('delay'))}
   
   Start Pengerjaan:
-  Tanggal: ${get('Tanggal Pengerjaan')}
-  Jam: ${get('Jam Pengerjaan')}
+  Tanggal: ${get('tanggalpengerjaan')}
+  Jam: ${get('jampengerjaan')}
   
   Finish Pengerjaan:
-  Tanggal: ${get('Tanggal Selesai Pengerjaan')}
-  Jam: ${get('Jam Selesai Pengerjaan')}
+  Tanggal: ${get('tanggalselesai')}
+  Jam: ${get('jamselesai')}
   
-  Status: ${get('Status')}
+  Status: ${get('status')}
   
   Pending Job:
-  ${bulletList(get('Pending Job'))}
+  ${bulletList(get('pendingjob'))}
   
   Man Power:
-  ${bulletList(get('Nama Man Power'))}
+  ${bulletList(get('manpower'))}
   Supervisor:
-  ${get('Supervisor')}
+  ${get('supervisor')}
   
   🔰Terimakasih🔰`;
   }
