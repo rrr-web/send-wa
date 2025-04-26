@@ -90,6 +90,9 @@ export default async function handler(req, res) {
   Pending Job:
   ${bulletList(get('pendingjob'))}
   
+  Backlog:
+  ${bulletList(get('backlog'))}
+    
   Man Power:
   ${bulletList(get('manpower'))}
   
