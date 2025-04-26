@@ -13,7 +13,7 @@ export default async function handler(req, res) {
       const response = await fetch('https://tegal.wablas.com/api/v2/send-message', {
         method: 'POST',
         headers: {
-          'Authorization': 'rfxGFTZNzK6brC9JhC2u9vUWGKLqiLJrN13Ugo2uyBA9C7bQUGAndAFxz9rJipBp.QogfE4TK',
+          'Authorization': process.env.WABLAS_API_TOKEN,
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -89,7 +89,10 @@ export default async function handler(req, res) {
     
     Pending Job:
     ${bulletList(get('pendingjob'))}
-    
+
+    Backlog:
+    ${bulletList(get('backlog'))}
+        
     Man Power:
     ${bulletList(get('manpower'))}
     
