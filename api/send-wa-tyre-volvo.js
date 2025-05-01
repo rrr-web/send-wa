@@ -196,7 +196,6 @@ export default async function handler(req, res) {
     if (lines.length === 0) return '• -';
   
     const result = lines.map(line => '• ' + line).join('\n');
-    console.log('Formatted bullet list:\n' + result);
     return result;
   }
   
