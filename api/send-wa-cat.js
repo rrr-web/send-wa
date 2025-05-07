@@ -2,7 +2,11 @@ export default async function handler(req, res) {
     if (req.method !== 'POST') {
       return res.status(405).json({ error: 'Method not allowed' });
     }
-  
+
+     if (!process.env.WABLAS_API_TOKEN) {
+      return res.status(500).json({ error: 'API token missing' });
+    }
+    
     const data = req.body;
     const groupIds = ['6285222707916-1558930545','6281273133989-1556324414'];
     // const groupIds = ['6282236924872'];
@@ -10,7 +14,7 @@ export default async function handler(req, res) {
     const message = formatMessage(data);
   
     try {
-      const response = await fetch('https://tegal.wablas.com/api/v2/send-message', {
+      const response = await retryFetch('https://tegal.wablas.com/api/v2/send-message', {
         method: 'POST',
         headers: {
           'Authorization': process.env.WABLAS_API_TOKEN,
@@ -46,7 +50,20 @@ export default async function handler(req, res) {
     }
   }
   
-    
+    async function retryFetch(url, options, retries = 3, delay = 500) {
+    for (let i = 0; i < retries; i++) {
+      try {
+        const res = await fetch(url, options);
+        if (res.ok) return res;
+        console.warn(`Retry ${i + 1}: Response not ok (${res.status})`);
+      } catch (err) {
+        console.warn(`Retry ${i + 1}: Fetch error`, err.message);
+        if (i === retries - 1) throw err;
+      }
+      await new Promise(resolve => setTimeout(resolve, delay));
+    }
+  }
+
     function formatMessage(data) {
       const get = (key) => (data[key] || '').toString();
       return `🟦 🟦 🟦
