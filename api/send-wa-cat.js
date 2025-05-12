@@ -8,8 +8,8 @@ export default async function handler(req, res) {
     }
     
     const data = req.body;
-    const groupIds = ['6285222707916-1558930545','6281273133989-1556324414'];
-    // const groupIds = ['6282236924872'];
+    // const groupIds = ['6285222707916-1558930545','6281273133989-1556324414'];
+    const groupIds = ['6282236924872'];
 
     const message = formatMessage(data);
   
@@ -24,7 +24,7 @@ export default async function handler(req, res) {
           data: groupIds.map(id => ({
             phone: id,
             message,
-            isGroup: true
+            isGroup: false
           }))
         })
       });
