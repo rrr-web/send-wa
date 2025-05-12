@@ -50,19 +50,25 @@ export default async function handler(req, res) {
     }
   }
 
-     async function retryFetch(url, options, retries = 3, delay = 500) {
-    for (let i = 0; i < retries; i++) {
-      try {
-        const res = await fetch(url, options);
-        if (res.ok) return res;
-        console.warn(`Retry ${i + 1}: Response not ok (${res.status})`);
-      } catch (err) {
-        console.warn(`Retry ${i + 1}: Fetch error`, err.message);
-        if (i === retries - 1) throw err;
-      }
-      await new Promise(resolve => setTimeout(resolve, delay));
+     async function retryFetch(url, options, retries = 3, delay = 500, timeout = 8000) {
+  for (let i = 0; i < retries; i++) {
+    try {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), timeout);
+      const res = await fetch(url, {
+        ...options,
+        signal: controller.signal
+      });
+      clearTimeout(timer);
+      if (res.ok) return res;
+      console.warn(`Retry ${i + 1}: Response not ok (${res.status})`);
+    } catch (err) {
+      console.warn(`Retry ${i + 1}:`, err.name, err.message);
+      if (i === retries - 1 || err.name === 'AbortError') throw err;
     }
+    await new Promise(resolve => setTimeout(resolve, delay));
   }
+}
   
   function formatMessage(data) {
     const {
