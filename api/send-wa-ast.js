@@ -47,7 +47,7 @@ export default async function handler(req, res) {
   } catch (err) {
     if (err.name === 'AbortError') {
     console.error('Request timeout to Wablas');
-    return res.status(504).json({ error: 'Timeout: Wablas tidak merespons dalam 8 detik dalam 3x percobaan' });
+    return res.status(504).json({ error: 'Timeout: Wablas tidak merespons dalam 8 detik dalam 3x percobaan!!!' });
   }
   console.error('Unexpected error:', err);
   return res.status(500).json({ error: err.message });
