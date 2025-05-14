@@ -8,8 +8,8 @@ export default async function handler(req, res) {
     }
 
   const data = req.body;
-  const groupIds = ['6281273133989-1502490848'];
-  // const groupIds = ['6282236924872'];
+  // const groupIds = ['6281273133989-1502490848'];
+  const groupIds = ['6282236924872'];
   
   const message = formatMessage(data);
 
@@ -45,12 +45,9 @@ export default async function handler(req, res) {
     }
 
   } catch (err) {
-    if (err.name === 'AbortError') {
-    console.error('Request timeout to Wablas');
-    return res.status(504).json({ error: 'Timeout: Wablas tidak merespons dalam 8 detik dalam 3x percobaan!!!' });
+      console.error('Unexpected error:', err);
+      res.status(500).json({ error: err.message });
   }
-  console.error('Unexpected error:', err);
-  return res.status(500).json({ error: err.message });
 }
 
 
