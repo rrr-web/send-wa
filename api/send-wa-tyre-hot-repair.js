@@ -65,6 +65,8 @@ export default async function handler(req, res) {
     } catch (err) {
       console.warn(`Retry ${i + 1}:`, err.name, err.message);
       if (i === retries - 1 ) throw err;
+    } finally {
+      clearTimeout(timer);
     }
     await new Promise(resolve => setTimeout(resolve, delay));
   }
