@@ -64,7 +64,7 @@ export default async function handler(req, res) {
       console.warn(`Retry ${i + 1}: Response not ok (${res.status})`);
     } catch (err) {
       console.warn(`Retry ${i + 1}:`, err.name, err.message);
-      if (i === retries - 1 || err.name === 'AbortError') throw err;
+     if (i === retries - 1 ) throw err;
     }
     await new Promise(resolve => setTimeout(resolve, delay));
   }
