@@ -50,7 +50,7 @@ export default async function handler(req, res) {
     }
   }
   
-    async function retryFetch(url, options, retries = 3, delay = 500, timeout = 8000) {
+async function retryFetch(url, options, retries = 3, delay = 500, timeout = 8000) {
   for (let i = 0; i < retries; i++) {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeout);
